@@ -15,3 +15,4 @@ class Productos(models.Model):
         managed = True
         verbose_name = 'producto'
         verbose_name_plural = 'Productos'
+        
