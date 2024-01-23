@@ -6,7 +6,7 @@ Crear Producto
 
 {% block content %}
 <h1>Formulario de producto</h1>
-<div class="container-sm" >
+<div class="container-sm">
   <form action="{% url 'crear' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mb-3">
@@ -20,6 +20,15 @@ Crear Producto
     <div class="mb-3">
       <label for="stock" class="form-label">Stock</label>
       <input type="number" class="form-control" id="stock" name="stock" min="0">
+    </div>
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoria</label>
+      <select class="form-select" name="categoria" aria-label="Default select example" required>
+        <option selected value="">Seleccione una categoria</option>
+        {% for categoria in categorias  %}
+          <option value="{{categoria.id}}">{{categoria.nombre_categoria}}</option>
+        {% endfor %}
+      </select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

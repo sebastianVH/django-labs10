@@ -1,9 +1,10 @@
 from django.urls import path,include
-from inventario.views import listadoProductos,crearProducto,eliminarProducto,editarProducto
+from inventario.views import *
 
 urlpatterns = [
-    path('listado/',listadoProductos,name='listado'),
+    path('',listadoProductos,name='listado'),
     path('crear/',crearProducto,name='crear'),
     path('eliminar/<id>',eliminarProducto,name='eliminar'),
     path('editar/<id>',editarProducto,name='editar'),
+    path('crear_categoria',crearCategoria,name='crear_categoria')
 ]

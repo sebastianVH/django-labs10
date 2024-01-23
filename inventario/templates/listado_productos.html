@@ -1,9 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
-  Lista de productos
+Lista de productos
 {% endblock title %}
 {% block content %}
   <h1> LISTA DE PRODUCTOS</h1>
+  <img src="{% static 'img/1669705_10203164262005254_874044643_o.jpg' %}" alt="">
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
@@ -11,6 +13,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Precio</th>
         <th scope="col">Stock</th>
+        <th scope="col">Categoria</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -21,6 +24,7 @@
         <td>{{producto.nombre}}</td>
         <td>{{producto.precio}} </td>
         <td>{{producto.stock}} </td>
+        <td>{{producto.categoria}} </td>
         <td>
           <a href="{% url 'eliminar' producto.id %}">
             <button type="button" class="btn btn-danger"> Eliminar</button>
@@ -33,6 +37,7 @@
       {% endfor %}
     </tbody>
   </table>
-  <a href="{% url 'crear' %}"> Crear un producto </a>
+  <a href="{% url 'crear' %}"> Crear un producto </a> <br>
+  <a href="{% url 'crear_categoria' %}"> Crear una categoria</a>
 
 {% endblock content %}
